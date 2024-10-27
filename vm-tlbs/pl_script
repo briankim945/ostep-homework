@@ -1,0 +1,37 @@
+#proc getdata
+file: ./output_3000000
+fieldnames: pages us
+
+#proc settings
+enable_suscripts: yes
+
+// define plotting area using proc areadef
+#proc areadef
+rectangle: 1 1 4 4
+xrange: 1 4096
+xscaletype: log
+xautorange: datafield=pages
+yautorange: datafield=us incmult=0.2 lowfix=0
+
+yaxis.label: Average Time per Access (microseconds)
+yaxis.stubs: inc
+yaxis.labeldetails: adjust=-.2,0
+
+
+// set up X axis using proc xaxis
+#proc xaxis
+label: Number of Pages
+labeldetails: adjust=0,-0.1
+selflocatingstubs: text
+   1	     1
+   4	     4
+   16	     16
+   64	     64
+   256     256
+   1024    1024
+   4096    4096
+
+#proc lineplot
+xfield: pages
+yfield: us
+linedetails: color=red
