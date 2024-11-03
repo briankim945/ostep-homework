@@ -21,4 +21,10 @@ prompt> ./foo
 
 (maybe with some optional arguments)
 
+## For Mac:
 
+The command will have to include `semaphore.c`. For instance:
+
+```sh
+prompt> gcc -o foo foo.c semaphore.c -Wall -pthread
+```
